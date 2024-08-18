@@ -1,41 +1,46 @@
 import React, { useState } from 'react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formState, setFormState] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData({
-      ...formData,
-      [id]: value,
-    });
+    const { name, value } = e.target;
+    setFormState({ ...formState, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
+    // Form submission logic, if necessary.
+    console.log('Form submitted:', formState);
   };
 
   return (
     <section id="contact" className="bg-gradient-to-r from-teal-400 via-blue-500 to-indigo-600 text-white">
       <div className="container mx-auto text-center">
         <h2 className="text-5xl font-extrabold mb-8">Contact Me</h2>
-        <form onSubmit={handleSubmit} className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <form 
+          name="contact" 
+          method="POST" 
+          data-netlify="true" 
+          onSubmit={handleSubmit} 
+          className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg"
+        >
+          <input type="hidden" name="form-name" value="contact" />
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
               Name
             </label>
             <input
-              className="w-full px-3 py-2 border rounded-lg text-black" // Set text color to black
+              className="w-full px-3 py-2 border rounded-lg"
               id="name"
+              name="name"
               type="text"
               placeholder="Your Name"
-              value={formData.name}
+              value={formState.name}
               onChange={handleChange}
             />
           </div>
@@ -44,11 +49,12 @@ const Contact = () => {
               Email
             </label>
             <input
-              className="w-full px-3 py-2 border rounded-lg text-black" // Set text color to black
+              className="w-full px-3 py-2 border rounded-lg"
               id="email"
+              name="email"
               type="email"
               placeholder="Your Email"
-              value={formData.email}
+              value={formState.email}
               onChange={handleChange}
             />
           </div>
@@ -57,11 +63,12 @@ const Contact = () => {
               Message
             </label>
             <textarea
-              className="w-full px-3 py-2 border rounded-lg text-black" // Set text color to black
+              className="w-full px-3 py-2 border rounded-lg"
               id="message"
+              name="message"
               rows="5"
               placeholder="Your Message"
-              value={formData.message}
+              value={formState.message}
               onChange={handleChange}
             ></textarea>
           </div>
