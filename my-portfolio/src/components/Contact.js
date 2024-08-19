@@ -16,6 +16,16 @@ const Contact = () => {
     e.preventDefault();
     // Form submission logic, if necessary.
     console.log('Form submitted:', formState);
+
+    // For Netlify Forms to work
+    const form = e.target;
+    const formData = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(() => alert('Form successfully submitted'))
+      .catch((error) => alert(error));
   };
 
   return (
@@ -42,6 +52,7 @@ const Contact = () => {
               placeholder="Your Name"
               value={formState.name}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="mb-4">
@@ -56,6 +67,7 @@ const Contact = () => {
               placeholder="Your Email"
               value={formState.email}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="mb-4">
@@ -70,6 +82,7 @@ const Contact = () => {
               placeholder="Your Message"
               value={formState.message}
               onChange={handleChange}
+              required
             ></textarea>
           </div>
           <div className="text-center">
