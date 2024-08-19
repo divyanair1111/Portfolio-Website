@@ -1,0 +1,21 @@
+.minimal-star-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ffffff 1px, transparent 1px) repeat;
+    background-size: 50px 50px; /* Fewer stars, spaced out */
+    opacity: 0.5; /* Make stars less intense */
+    animation: subtleMove 60s linear infinite; /* Slow, subtle movement */
+  }
+  
+  @keyframes subtleMove {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
