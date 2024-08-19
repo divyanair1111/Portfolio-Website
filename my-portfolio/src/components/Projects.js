@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './Projects.css'; // Ensure this contains the necessary CSS for the star background
+import './Projects.css'; 
 
 const Projects = () => {
   const projects = [
@@ -63,7 +63,7 @@ const Projects = () => {
   return (
     <section id="projects" className="relative bg-gray-900 py-20 text-white overflow-hidden">
       <div className="container mx-auto relative z-10">
-        <h2 className="text-5xl font-bold mb-8 text-center">Latest Work</h2>
+        <h2 className="text-5xl font-bold mb-8 text-center">PROJECTS</h2>
         <div className="space-y-12">
           {projects.map((project, index) => (
             <motion.div 
