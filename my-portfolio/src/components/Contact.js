@@ -14,9 +14,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Form submission logic, if necessary.
-    console.log('Form submitted:', formState);
-
+    
     // For Netlify Forms to work
     const form = e.target;
     const formData = new FormData(form);
@@ -45,7 +43,7 @@ const Contact = () => {
               Name
             </label>
             <input
-              className="w-full px-3 py-2 border rounded-lg"
+              className="w-full px-3 py-2 border rounded-lg text-black"  // Ensure text color is black
               id="name"
               name="name"
               type="text"
@@ -60,7 +58,7 @@ const Contact = () => {
               Email
             </label>
             <input
-              className="w-full px-3 py-2 border rounded-lg"
+              className="w-full px-3 py-2 border rounded-lg text-black"  // Ensure text color is black
               id="email"
               name="email"
               type="email"
@@ -75,7 +73,7 @@ const Contact = () => {
               Message
             </label>
             <textarea
-              className="w-full px-3 py-2 border rounded-lg"
+              className="w-full px-3 py-2 border rounded-lg text-black"  // Ensure text color is black
               id="message"
               name="message"
               rows="5"
